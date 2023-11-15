@@ -28,7 +28,7 @@ resource "aws_instance" "instance" {
   key_name="user4_deployer-key"
   tags = {
     Name = "user4-instance-${count.index}",
-    role=count.index==0?"lb": (count.index<3?"user4-web":"user4-backend")
+    role=count.index==0?"user4-lb": (count.index<3?"user4-web":"user4-backend")
   }
 }
 output "ips"{
